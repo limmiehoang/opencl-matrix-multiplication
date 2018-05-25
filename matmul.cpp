@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
         initmat(N, h_A, h_B, h_C);
 
         //printf("\n===== Sequential, matrix mult (dot prod), order %d on host CPU ======\n",ORDER);
-		printf("\n===== Sequential, matrix multiplication [1024][1024]*[1024][1024] on host CPU ======\n");
+		printf("\n===== Sequential, matrix mult (dot prod), order %d on host CPU ======\n",ORDER);
         for(int i = 0; i < COUNT; i++)
         {
             zero_mat(N, h_C);
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
         cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer> naive_mmul(program, "mmul");
 
         //printf("\n===== OpenCL, matrix mult, C(i,j) per work item, order %d ======\n",N);
-		printf("\n===== OpenCL, matrix multiplication [1024][1024]*[1024][1024], optimized per work item ======\n");
+		printf("\n===== OpenCL, matrix mult, C(i,j) per work item, order %d ======\n",N);
         // Do the multiplication COUNT times
         for (int i = 0; i < COUNT; i++)
         {
@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
         cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer>row_mmul(program, "mmul");
 
         //printf("\n===== OpenCL, matrix mult, C(i,j) optimize_per_row, order %d ======\n",N);
-		printf("\n===== OpenCL, matrix multiplication [1024][1024]*[1024][1024], optimized per row ======\n");
+		printf("\n===== OpenCL, matrix mult, C row per work item, order %d ======\n",N);
         // Do the multiplication COUNT times
         for (int i = 0; i < COUNT; i++)
         {
@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
         cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer> private_mmul(program, "mmul");
 
         //printf("\n===== OpenCL, matrix mult, C(i,j) optimize_private, order %d ======\n",N);
-		printf("\n===== OpenCL, matrix multiplication [1024][1024]*[1024][1024], optimized private ======\n");
+		printf("\n===== OpenCL, matrix mult, C row, A row in priv mem, order %d, work-group size %d ======\n",N,ORDER/16);
         // Do the multiplication COUNT times
         for (int i = 0; i < COUNT; i++)
         {
@@ -191,6 +191,44 @@ int main(int argc, char *argv[])
 			cl::NDRange local(ORDER/16);
             private_mmul(cl::EnqueueArgs(queue, global,local),
                     N, d_a, d_b, d_c);
+
+            queue.finish();
+
+            run_time  = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0 - start_time;
+
+            cl::copy(queue, d_c, h_C.begin(), h_C.end());
+
+            results(N, h_C, run_time);
+
+        } // end for loop
+
+
+//--------------------------------------------------------------------------------
+// OpenCL matrix multiplication ... C row per work item, A row pivate, B col local
+//--------------------------------------------------------------------------------
+
+        // Create the compute program from the source buffer
+        program = cl::Program(context, util::loadProgram("C_row_priv_bloc.cl"), true);
+
+        // Create the compute kernel from the program
+        cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer, cl::LocalSpaceArg> browloc_mmul(program, "mmul");
+
+        printf("\n===== OpenCL, mat mult, C row, priv A, B cols loc, order %d, work-group size %d ======\n",N, ORDER/16);
+
+        // Do the multiplication COUNT times
+        for (int i = 0; i < COUNT; i++)
+        {
+            zero_mat(N, h_C);
+
+            start_time = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0;
+
+            cl::NDRange global(N);
+            cl::NDRange local(ORDER / 16);
+
+            cl::LocalSpaceArg localmem = cl::Local(sizeof(float) * N);
+
+            browloc_mmul(cl::EnqueueArgs(queue, global, local),
+                    N, d_a, d_b, d_c, localmem);
 
             queue.finish();
 
