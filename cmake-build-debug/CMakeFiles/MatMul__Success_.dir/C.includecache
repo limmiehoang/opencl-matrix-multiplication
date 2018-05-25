@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/wtime.c
+omp.h
+-
+sys/time.h
+-
+stdlib.h
+-
+

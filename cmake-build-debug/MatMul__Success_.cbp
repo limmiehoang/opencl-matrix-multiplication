@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MatMul__Success_"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MatMul__Success_">
+				<Option output="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/MatMul__Success_.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/."/>
+					<Add directory="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatMul__Success_"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MatMul__Success_/fast">
+				<Option output="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/MatMul__Success_.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/."/>
+					<Add directory="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatMul__Success_/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/cl.hpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/device_picker.hpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/err_code.h">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/util.hpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/Cpp_common/wtime.c">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.cpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.hpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.cpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.hpp">
+			<Option target="MatMul__Success_"/>
+		</Unit>
+		<Unit filename="E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

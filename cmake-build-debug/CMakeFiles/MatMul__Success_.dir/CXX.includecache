@@ -1,0 +1,120 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Cpp_common/cl.hpp
+windows.h
+-
+malloc.h
+-
+iterator
+-
+intrin.h
+-
+exception
+-
+CL/cl_d3d10.h
+-
+CL/cl_dx9_media_sharing.h
+-
+CL/cl_ext.h
+-
+OpenGL/OpenGL.h
+-
+OpenCL/opencl.h
+-
+libkern/OSAtomic.h
+-
+GL/gl.h
+-
+CL/opencl.h
+-
+utility
+-
+limits
+-
+vector
+-
+string
+-
+alloca.h
+-
+emmintrin.h
+-
+xmmintrin.h
+-
+cstring
+-
+
+../Cpp_common/device_picker.hpp
+vector
+-
+err_code.h
+-
+iostream
+-
+
+../Cpp_common/err_code.h
+OpenCL/opencl.h
+-
+CL/cl.h
+-
+cstdio
+-
+
+../Cpp_common/util.hpp
+windows.h
+-
+sys/time.h
+-
+stdint.h
+-
+unistd.h
+-
+iostream
+-
+fstream
+-
+string
+-
+cstdlib
+-
+
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.cpp
+matmul.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.hpp
+matrix_lib.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.hpp
+err_code.h
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/err_code.h
+device_picker.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/device_picker.hpp
+
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.hpp
+cstdio
+-
+cstdlib
+-
+cmath
+-
+iostream
+-
+vector
+-
+cl.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/cl.hpp
+util.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/util.hpp
+matrix_lib.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.hpp
+
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.cpp
+matmul.hpp
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matmul.hpp
+
+E:/DUT/Year4_2017-2018/Sem2/[Project]CSNM/MatMul (Success)/matrix_lib.hpp
+
