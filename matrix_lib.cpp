@@ -124,11 +124,10 @@ void results(int N, std::vector<float>& C, double run_time)
 
     float mflops;
     float errsq;
-    
+
     mflops = 2.0 * N * N * N/(1000000.0f * run_time);
     printf(" %.2f seconds at %.1f MFLOPS \n",  run_time,mflops);
     errsq = error(N, C);
-    //if (std::isnan(errsq) || errsq > TOL)
-           //printf("\n Errors in multiplication: %f\n",errsq);
+    if (std::isnan(errsq) || errsq > TOL)
+           printf("\n Errors in multiplication: %f\n",errsq);
 }
-

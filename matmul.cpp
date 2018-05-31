@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     try
     {
 
-        cl_uint deviceIndex = 1;
+        cl_uint deviceIndex = 2;
         parseArguments(argc, argv, &deviceIndex);
 
 
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
             zero_mat(N, h_C);
             start_time = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0;
 
-            // seq_mat_mul_sdot(N, h_A, h_B, h_C);
+            seq_mat_mul_sdot(N, h_A, h_B, h_C);
 
             run_time  = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0 - start_time;
             results(N, h_C, run_time);
@@ -132,13 +132,13 @@ int main(int argc, char *argv[])
 // OpenCL matrix multiplication ... Optimize: One work item per row
 //--------------------------------------------------------------------------------
 
-		program = cl::Program(context, util::loadProgram("optimize_per_row.cl"), true);
+		    program = cl::Program(context, util::loadProgram("optimize_per_row.cl"), true);
 
-		// Create the compute kernel from the program
+		    // Create the compute kernel from the program
         cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer>row_mmul(program, "mmul");
 
         //printf("\n===== OpenCL, matrix mult, C(i,j) optimize_per_row, order %d ======\n",N);
-		printf("\n===== OpenCL, matrix mult, C row per work item, order %d ======\n",N);
+		    printf("\n===== OpenCL, matrix mult, C row per work item, order %d ======\n",N);
         // Do the multiplication COUNT times
         for (int i = 0; i < COUNT; i++)
         {
@@ -169,13 +169,13 @@ int main(int argc, char *argv[])
 // OpenCL matrix multiplication ... Optimize: Row of A in private memory
 //--------------------------------------------------------------------------------
 
-		program = cl::Program(context, util::loadProgram("optimize_private.cl"), true);
+		    program = cl::Program(context, util::loadProgram("optimize_private.cl"), true);
 
         // Create the compute kernel from the program
         cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer> private_mmul(program, "mmul");
 
         //printf("\n===== OpenCL, matrix mult, C(i,j) optimize_private, order %d ======\n",N);
-		printf("\n===== OpenCL, matrix mult, C row, A row in priv mem, order %d, work-group size %d ======\n",N,ORDER/16);
+		    printf("\n===== OpenCL, matrix mult, C row, A row in priv mem, order %d, work-group size %d ======\n",N,ORDER/16);
         // Do the multiplication COUNT times
         for (int i = 0; i < COUNT; i++)
         {
@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
             // group size is set to NULL ... so I'm telling the OpenCL runtime to
             // figure out a local work group size for me.
             cl::NDRange global(N);
-			cl::NDRange local(ORDER/16);
+			      cl::NDRange local(ORDER/16);
             private_mmul(cl::EnqueueArgs(queue, global,local),
                     N, d_a, d_b, d_c);
 
@@ -239,7 +239,54 @@ int main(int argc, char *argv[])
             results(N, h_C, run_time);
 
         } // end for loop
+//--------------------------------------------------------------------------------
+// OpenCL matrix multiplication ... blocked
+//--------------------------------------------------------------------------------
 
+        // Create the compute program from the source buffer
+        program = cl::Program(context, util::loadProgram("C_block_form.cl"), true);
+
+        // Create the compute kernel from the program
+        cl::make_kernel<int, cl::Buffer, cl::Buffer, cl::Buffer, cl::LocalSpaceArg, cl::LocalSpaceArg> block_mmul(program, "mmul");
+
+        printf("\n===== Parallel matrix mult (blocked), order %d on device ======\n",ORDER);
+
+        // Do the multiplication COUNT times
+        for (int i = 0; i < COUNT; i++)
+        {
+            zero_mat(N, h_C);
+
+            start_time = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0;
+
+            // Work-group computes a block of C.  This size is also set
+            // in a #define inside the kernel function.  Note this blocksize
+            // must evenly divide the matrix order
+            int blocksize = 16;
+
+            cl::LocalSpaceArg A_block = cl::Local(sizeof(float) * blocksize*blocksize);
+            cl::LocalSpaceArg B_block = cl::Local(sizeof(float) * blocksize*blocksize);
+
+            block_mmul(
+                cl::EnqueueArgs(
+                    queue,
+                    cl::NDRange(N,N),
+                    cl::NDRange(blocksize,blocksize)),
+                N,
+                d_a,
+                d_b,
+                d_c,
+                A_block,
+                B_block);
+
+            queue.finish();
+
+            run_time = static_cast<double>(timer.getTimeMilliseconds()) / 1000.0 - start_time;
+
+            cl::copy(queue, d_c, h_C.begin(), h_C.end());
+
+            results(N, h_C, run_time);
+
+        } // end for loop
     } catch (cl::Error err)
     {
         std::cout << "Exception\n";
